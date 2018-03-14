@@ -48,7 +48,7 @@ namespace Flurl.Http.Xml
         /// <example>x = await url.PostAsync(data).ReceiveXmlResponseMessage()</example>
         public static async Task<HttpResponseMessage> ReceiveXmlResponseMessage(this Task<HttpResponseMessage> responseMessage)
 	    {
-	        var response = await responseMessage.ConfigureAwait(false);
+	        var response = await responseMessage.ConfigureAwait(continueOnCapturedContext: false);
 	        response.Content.Headers.ContentType = new MediaTypeHeaderValue(GetMediaType(response.RequestMessage));
 
             return response;
@@ -61,14 +61,14 @@ namespace Flurl.Http.Xml
 
             try
             {
-                using (var stream = await resp.Content.ReadAsStreamAsync().ConfigureAwait(false))
+                using (var stream = await resp.Content.ReadAsStreamAsync().ConfigureAwait(continueOnCapturedContext: false))
 	            {
 	                return streamHandler(call, stream);
 	            }
 	        }
 	        catch (Exception ex)
 	        {
-	            var s = await resp.Content.ReadAsStringAsync().ConfigureAwait(false);
+	            var s = await resp.Content.ReadAsStringAsync().ConfigureAwait(continueOnCapturedContext: false);
 	            throw new FlurlHttpException(call, s, ex);
 	        }
 	    }

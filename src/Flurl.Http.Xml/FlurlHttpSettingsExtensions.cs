@@ -10,7 +10,7 @@ namespace Flurl.Http.Xml
 	/// </summary>
 	public static class FlurlHttpSettingsExtensions
 	{
-		private static XmlWriterSettings s_xmlWriterSettings = new XmlWriterSettings { Encoding = new UTF8Encoding(false, false), Indent = true, OmitXmlDeclaration = false };
+		private static XmlWriterSettings s_xmlWriterSettings = new XmlWriterSettings { Encoding = new UTF8Encoding(encoderShouldEmitUTF8Identifier: false, throwOnInvalidBytes: false), Indent = true, OmitXmlDeclaration = false };
 		private static readonly Lazy<MicrosoftXmlSerializer> s_xmlSerializerInstance = new Lazy<MicrosoftXmlSerializer>(() => new MicrosoftXmlSerializer(s_xmlWriterSettings));
 
 		/// <summary>
