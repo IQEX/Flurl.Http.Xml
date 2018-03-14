@@ -27,7 +27,7 @@ namespace Flurl.Http.Xml
         public static Task<T> GetXmlAsync<T>(this IFlurlRequest request, 
             CancellationToken cancellationToken = default(CancellationToken), HttpCompletionOption completionOption = HttpCompletionOption.ResponseContentRead)
         {
-            return request.SendAsync(HttpMethod.Get, null, cancellationToken, completionOption).ReceiveXml<T>();
+            return request.SendAsync(HttpMethod.Get, content: null, cancellationToken: cancellationToken, completionOption: completionOption).ReceiveXml<T>();
         }
 
         /// <summary>
@@ -42,7 +42,7 @@ namespace Flurl.Http.Xml
         public static Task<XDocument> GetXDocumentAsync(this IFlurlRequest request, 
             CancellationToken cancellationToken = default(CancellationToken), HttpCompletionOption completionOption = HttpCompletionOption.ResponseContentRead)
         {
-            return request.SendAsync(HttpMethod.Get, null, cancellationToken, completionOption).ReceiveXDocument();
+            return request.SendAsync(HttpMethod.Get, content: null, cancellationToken: cancellationToken, completionOption: completionOption).ReceiveXDocument();
         }
 
         /// <summary>
@@ -58,7 +58,7 @@ namespace Flurl.Http.Xml
         public static Task<IEnumerable<XElement>> GetXElementsFromXPath(this IFlurlRequest request, string expression, 
             CancellationToken cancellationToken = default(CancellationToken), HttpCompletionOption completionOption = HttpCompletionOption.ResponseContentRead)
         {
-            return request.SendAsync(HttpMethod.Get, null, cancellationToken, completionOption).ReceiveXElementsFromXPath(expression);
+            return request.SendAsync(HttpMethod.Get, content: null, cancellationToken: cancellationToken, completionOption: completionOption).ReceiveXElementsFromXPath(expression);
         }
 
         /// <summary>
@@ -75,7 +75,7 @@ namespace Flurl.Http.Xml
         public static Task<IEnumerable<XElement>> GetXElementsFromXPath(this IFlurlRequest request, string expression, IXmlNamespaceResolver resolver, 
             CancellationToken cancellationToken = default(CancellationToken), HttpCompletionOption completionOption = HttpCompletionOption.ResponseContentRead)
         {
-            return request.SendAsync(HttpMethod.Get, null, cancellationToken, completionOption).ReceiveXElementsFromXPath(expression, resolver);
+            return request.SendAsync(HttpMethod.Get, content: null, cancellationToken: cancellationToken, completionOption: completionOption).ReceiveXElementsFromXPath(expression, resolver);
         }
 
         private static string GetMediaType(this IFlurlRequest request)
