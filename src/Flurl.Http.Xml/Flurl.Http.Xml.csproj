@@ -17,6 +17,8 @@
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/lvermeulen/Flurl.Http.Xml</RepositoryUrl>
+    <AssemblyVersion>2018.6.2.0</AssemblyVersion>
+    <FileVersion>2018.6.2.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
